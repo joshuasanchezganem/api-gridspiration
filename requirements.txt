@@ -14,3 +14,5 @@ jupyter-dash
 Pillow==9.5.0
 fastapi
 uvicorn
+pydantic
+typing
