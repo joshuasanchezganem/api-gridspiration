@@ -16,3 +16,7 @@ fastapi
 uvicorn
 pydantic
 typing
+numpy
+scikit-image
+opencv-python
+scikit-learn
