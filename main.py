@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 from typing import List
 from color_extractor import ColorExtractor
-from recolor import recolor_image_with_palette
+#from recolor import recolor_image_with_palette
 from PIL import Image
 import io
 
