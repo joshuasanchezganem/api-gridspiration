@@ -454,21 +454,18 @@ palette = [
 ]
 
 def choose_pallete(type_pal: bool) -> pd.DataFrame:
-    #    Esto SÍ comprueba el tipo cuando se llama a la función
-    if not isinstance(type_pal, bool):
-        # Si no es booleano, lanzamos un error claro
-        raise TypeError(f"El parámetro 'type_pal' debe ser booleano (True/False), pero se recibió {type(type_pal)}")
-
-    # Renombrar la columna de las llaves
-    df = df.rename(columns={'index': 'Hexadecimal'})
     if type_pal:
         df = pd.DataFrame.from_dict(colores_2026, orient='index', columns=['Nombres', 'Pantone']).reset_index()
+        # Renombrar la columna de las llaves
+        df = df.rename(columns={'index': 'Hexadecimal'})
         df['Paleta'] = df.index // 9
         # Asignar valores específicos por grupo
         df['Paleta'] = df['Paleta'].map(lambda x: palette[x % len(palette)])
         lista_de_colores = list(colores_2026.keys())
     else:
         df = pd.DataFrame.from_dict(dicc_colores, orient='index', columns=['Nombres', 'Pantone']).reset_index()
+        # Renombrar la columna de las llaves
+        df = df.rename(columns={'index': 'Hexadecimal'})
         df['Paleta'] = 'No asignada'
         lista_de_colores = list(dicc_colores.keys())
     
